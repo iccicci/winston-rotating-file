@@ -75,3 +75,22 @@ With [npm](https://www.npmjs.com/package/winston-rotating-file):
 ```sh
 $ npm install --save winston-rotating-file
 ```
+
+# API
+
+```javascript
+const { WinstonRotatingFile } = require("winston-rotating-file");
+```
+
+## new WinstonRotatingFile(options)
+
+Creates the _Transport_ for **winston**. Accepts all options for
+[winston-transport](https://www.npmjs.com/package/winston-transport) (please refer to
+[winston](https://www.npmjs.com/package/winston) for details) plus following specific options:
+
+- `filename` (required)
+- `rfsOptions`
+
+both of them passed to
+[`rfs.createStream`](https://www.npmjs.com/package/rotating-file-stream#rfscreatestreamfilename-options), please refer
+to [rotating-file-stream](https://www.npmjs.com/package/rotating-file-stream) for detailed options description.
