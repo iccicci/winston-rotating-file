@@ -32,7 +32,7 @@
 
 ### Description
 
-Transport for winston based on [rotating-file-stream](https://www.npmjs.com/package/rotating-file-stream)
+Transport for winston based on [rotating-file-stream](https://www.npmjs.com/package/rotating-file-stream).
 
 ### Usage
 
@@ -94,3 +94,28 @@ Creates the _Transport_ for **winston**. Accepts all options for
 both of them passed to
 [`rfs.createStream`](https://www.npmjs.com/package/rotating-file-stream#rfscreatestreamfilename-options), please refer
 to [rotating-file-stream](https://www.npmjs.com/package/rotating-file-stream) for detailed options description.
+
+# TypeScript
+
+Check [`index.d.ts`](https://github.com/iccicci/winston-rotating-file/blob/master/index.d.ts) for what is exported in
+**TypeScript**.
+
+# Compatibility
+
+Requires **Node.js v10.x**.
+
+The package is tested under [all Node.js versions](https://travis-ci.org/iccicci/winston-rotating-file)
+currently supported accordingly to [Node.js Release](https://github.com/nodejs/Release#readme).
+
+# Licence
+
+[MIT Licence](https://github.com/iccicci/winston-rotating-file/blob/master/LICENSE)
+
+# Bugs
+
+Do not hesitate to report any bug or inconsistency [@github](https://github.com/iccicci/winston-rotating-file/issues).
+
+# Donating
+
+If you find useful this package, please consider the opportunity to donate some satoshis to this bitcoin address:
+**12p1p5q7sK75tPyuesZmssiMYr4TKzpSCN**
