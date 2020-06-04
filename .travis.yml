@@ -1,0 +1,15 @@
+env:
+  global:
+    - CODECLIMATE_REPO_TOKEN=1fdd8b191b3bf133c495ac33c4c980e732915296e6493fd5acb575fd4972d6d3
+
+sudo: false
+
+language: node_js
+
+node_js:
+  - "14"
+  - "12"
+  - "10"
+
+after_script:
+  - if [[ `node --version` =~ ^v14 ]] ; then npm run coverage ; npm install codeclimate-test-reporter ; codeclimate-test-reporter < coverage/lcov.info ; fi
