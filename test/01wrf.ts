@@ -30,6 +30,16 @@ describe("WinstonRotatingFile", () => {
     setTimeout(() => logger.end(done), 100);
   });
 
-  it("error", () => ok(readFileSync("error.log").toString().match(/^.{19} Error\n$/)));
-  it("info", () => ok(readFileSync("combined.log").toString().match(/^.{19} Info\n.{19} Error\n$/)));
+  it("error", () =>
+    ok(
+      readFileSync("error.log")
+        .toString()
+        .match(/^.{19} Error\n$/)
+    ));
+  it("info", () =>
+    ok(
+      readFileSync("combined.log")
+        .toString()
+        .match(/^.{19} Info\n.{19} Error\n$/)
+    ));
 });

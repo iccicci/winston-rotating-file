@@ -3,11 +3,11 @@
 [![Build Status][travis-badge]][travis-url]
 [![Code Climate][code-badge]][code-url]
 [![Test Coverage][cover-badge]][code-url]
+[![Donate][donate-badge]][donate-url]
 
 [![NPM version][npm-badge]][npm-url]
-[![NPM downloads][npm-downloads-badge]][npm-url]
 [![Types][types-badge]][npm-url]
-[![Donate][donate-badge]][donate-url]
+[![NPM downloads][npm-downloads-badge]][npm-url]
 
 [![Dependencies][dep-badge]][dep-url]
 [![Dev Dependencies][dev-dep-badge]][dev-dep-url]
@@ -23,7 +23,7 @@
 [dev-dep-url]: https://david-dm.org/iccicci/winston-rotating-file?type=dev
 [donate-badge]: https://badgen.net/badge/donate/bitcoin?icon=bitcoin
 [donate-url]: https://blockchain.info/address/12p1p5q7sK75tPyuesZmssiMYr4TKzpSCN
-[npm-downloads-badge]: https://badgen.net/npm/dm/winston-rotating-file?icon=npm
+[npm-downloads-badge]: https://badgen.net/npm/dw/winston-rotating-file?icon=npm
 [npm-badge]: https://badgen.net/npm/v/winston-rotating-file?color=green&icon=npm
 [npm-url]: https://www.npmjs.com/package/winston-rotating-file
 [travis-badge]: https://badgen.net/travis/iccicci/winston-rotating-file?icon=travis
@@ -45,7 +45,16 @@ const logger = winston.createLogger({
     winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
     winston.format.printf(info => `${info.timestamp} ${info.message}\n`)
   ),
-  transports: [new WinstonRotatingFile({ filename: "file.log" })]
+  transports: [
+    new WinstonRotatingFile({
+      filename: "file.log",
+      rfsOptions: {
+        size: "10M", // rotate every 10 MegaBytes written
+        interval: "1d", // rotate daily
+        compress: "gzip" // compress rotated files
+      }
+    })
+  ]
 });
 ```
 
@@ -55,7 +64,14 @@ or (if access to [rotating-file-stream](https://www.npmjs.com/package/rotating-f
 const { WinstonRotatingFile } = require("winston-rotating-file");
 const winston = require("winston");
 
-const transport = new WinstonRotatingFile({ filename: "file.log" });
+const transport = new WinstonRotatingFile({
+  filename: "file.log",
+  rfsOptions: {
+    size: "10M", // rotate every 10 MegaBytes written
+    interval: "1d", // rotate daily
+    compress: "gzip" // compress rotated files
+  }
+});
 
 transport.stream.on("rotated", filename => {});
 

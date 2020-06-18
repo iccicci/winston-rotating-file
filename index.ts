@@ -25,8 +25,6 @@ export class WinstonRotatingFile extends TransportStream {
   }
 
   public log(info: any, done: () => void): any {
-    this.emit("logged", info);
-
     this.stream.write(info[message], done);
   }
 }
