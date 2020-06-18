@@ -1,6 +1,6 @@
 {
   "name": "winston-rotating-file",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Transport for winston based on rotating-file-stream",
   "main": "index.js",
   "scripts": {
